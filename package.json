@@ -1,0 +1,13 @@
+{
+  "name": "tailwind-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"npm run shopify",
+    "shopify": "shopify theme dev --store=gadget-bundle"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
