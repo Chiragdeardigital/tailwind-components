@@ -1,28 +1,11 @@
 
 
-{%- if settings.cart_type == "drawer" -%}
-  {% comment %} {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-  {{ 'component-cart.css' | asset_url | stylesheet_tag }}
-  {{ 'component-totals.css' | asset_url | stylesheet_tag }}
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-  {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }} {% endcomment %}
-{%- endif -%}
 
-
-<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
 {%- if settings.cart_type == "drawer" -%}
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-
-
-
-
-<a href="{{ routes.cart_url }}" class="header__icon--cart" id="cart-icon-bubble">
+<a href="{{ routes.cart_url }}" class="header__icon--cart flex w-12 h-12" id="cart-icon-bubble">
   {%- liquid
     if cart == empty
       render 'icon-cart-empty'
@@ -30,15 +13,6 @@
       render 'icon-cart'
     endif
   -%}
-  <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-  {%- if cart != empty -%}
-    <div class="cart-count-bubble">
-      {%- if cart.item_count < 100 -%}
-        <span aria-hidden="true">{{ cart.item_count }}</span>
-      {%- endif -%}
-      <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-    </div>
-  {%- endif -%}
 </a>
 
 <script type="application/ld+json">
